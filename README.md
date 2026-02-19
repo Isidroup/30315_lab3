@@ -26,18 +26,10 @@ Este proyecto implementa un **transmisor UART completo** con manejo robusto de e
 ├── constraints/                  # Restricciones de diseño
 │   ├── 01_timing.xdc             # Restricciones de timing
 │   └── 02_basys3_io.xdc          # Mapeo de I/O Basys3
-├── doc/                          # Documentación
-│   ├── TEST_PLAN.md              # Plan de pruebas detallado
-│   └── TEST_PLAN.rst             # Plan de pruebas (formato RST)
 ├── rtl/                          # Código RTL
 │   └── uart_tx.vhd               # Módulo transmisor UART
 ├── sim/                          # Simulación
-│   ├── uart_tx_tb.vhd            # Testbench principal
-│   ├── uart_tx_tb_fixed.vhd      # Testbench corregido
-│   ├── uart_tx_tb_behav.wcfg     # Configuración de onda (Vivado)
-│   └── .modelsim/                # Configuración ModelSim
-│       ├── Makefile              # Automatización de simulación
-│       └── wave.do               # Script de visualización de ondas
+│   └── uart_tx_tb.vhd            # Testbench principal
 ├── scripts/                      # Scripts de automatización
 │   └── lab.tcl                   # Script TCL para crear proyecto Vivado
 ├── vivado/                       # Proyecto Vivado (generado)
@@ -137,12 +129,6 @@ vivado -mode batch -source scripts/lab.tcl
 2. En Flow Navigator → Simulation → **Run Behavioral Simulation**
 3. Observar las formas de onda (configuración disponible en `uart_tx_tb_behav.wcfg`)
 
-#### Con ModelSim
-
-```bash
-# Desde el directorio sim/.modelsim/
-make
-```
 
 ### Síntesis e Implementación
 
@@ -188,23 +174,10 @@ make
 |--------------------------------------------------------------|-------------------------------------------|
 | [rtl/uart_tx.vhd](rtl/uart_tx.vhd)                           | Implementación del módulo transmisor UART |
 | [sim/uart_tx_tb.vhd](sim/uart_tx_tb.vhd)                     | Testbench principal                       |
-| [sim/uart_tx_tb_fixed.vhd](sim/uart_tx_tb_fixed.vhd)         | Testbench corregido                       |
-| [doc/TEST_PLAN.md](doc/TEST_PLAN.md)                         | Plan exhaustivo de pruebas (478 líneas)   |
 | [scripts/lab.tcl](scripts/lab.tcl)                           | Script de creación del proyecto           |
 | [constraints/02_basys3_io.xdc](constraints/02_basys3_io.xdc) | Mapeo de pines I/O                        |
 | [constraints/01_timing.xdc](constraints/01_timing.xdc)       | Restricciones de timing                   |
 
-### Plan de Pruebas
-
-El documento [TEST_PLAN.md](doc/TEST_PLAN.md) incluye:
-
-- **GRUPO T1**: Reset y condiciones iniciales
-- **GRUPO T2**: Sincronización del botón
-- **GRUPO T3**: Debouncing
-- **GRUPO T4**: Detección de flancos
-- **GRUPO T5**: Transmisión de datos
-- **GRUPO T6**: Pruebas de estrés
-- **GRUPO T7**: Casos límite
 
 ---
 
@@ -248,5 +221,3 @@ El documento [TEST_PLAN.md](doc/TEST_PLAN.md) incluye:
 ---
 
 *Última actualización: Febrero 2026*
-
-Para más información, consulta el [Plan de Pruebas Detallado](doc/TEST_PLAN.md).
