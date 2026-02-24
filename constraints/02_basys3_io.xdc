@@ -1,6 +1,6 @@
 # --------------------------------------------------------------------------------
 # Archivo: 02_basys3_io.xdc
-# Descripción: Asignación de pines y configuración de voltaje para Basys3
+# Descripcion: Asignacion de pines y configuracion de voltaje para Basys3
 # --------------------------------------------------------------------------------
 
 ## Switches (Entrada SW)
@@ -14,24 +14,23 @@
 set_property PACKAGE_PIN    W5  [get_ports {CLK}]
 
 # --------------------------------------------------------------------------
-# Configuración Eléctrica y de Dispositivo
+# Configuracion Electrica y de Dispositivo
 # --------------------------------------------------------------------------
 
-# Estándar I/O: Aplicamos LVCMOS33 a todos los puertos
-# Configuración para Entradas (Switches y Botones)
+# Estandar I/O: Aplicamos LVCMOS33 a todos los puertos
+# Configuracion para Entradas (Switches y Botones)
 set_property IOSTANDARD LVCMOS33 [get_ports {SW[*] BTND RST CLK}]
-# Configuración para Salidas (LEDs)
+# Configuracion para Salidas (LEDs)
 set_property IOSTANDARD LVCMOS33 [get_ports {TX}]
 
-# Configuración de compresión de Bitstream y Voltaje de Bancos
+# Configuracion de compresion de Bitstream y Voltaje de Bancos
 set_property CFGBVS VCCO [current_design]
 set_property CONFIG_VOLTAGE 3.3 [current_design]
 
 # --------------------------------------------------------------------------
-# NOTA SOBRE LA ASIGNACIÓN DE PINES:
-# La asignación de pines y la configuración eléctrica aquí definidas
-# están específicamente adaptadas para la placa Basys3. Al utilizar
+# NOTA SOBRE LA ASIGNACION DE PINES:
+# La asignacion de pines y la configuracion electrica aqui definidas
+# estan especificamente adaptadas para la placa Basys3. Al utilizar
 # una FPGA diferente o una placa distinta, es necesario consultar la
-# documentación del fabricante para asegurar una asignación correcta
-# de pines y una configuración adecuada de los estándares eléctricos.
-
+# documentacion del fabricante para asegurar una asignacion correcta
+# de pines y una configuracion adecuada de los estandares electricos.
